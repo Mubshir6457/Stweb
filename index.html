@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mubashir Online Quran Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-gold: #c5a880;
+            --dark-gold: #9a7b56;
+            --emerald-green: #064e3b;
+            --dark-bg: #1a120b;
+            --card-bg: #2c1e11;
+            --text-light: #f5f2eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(26, 18, 11, 0.95);
+            border-bottom: 2px solid var(--primary-gold);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .web-logo-img {
+            width: 65px;
+            height: 65px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--primary-gold);
+            box-shadow: 0 0 12px rgba(197, 168, 128, 0.4);
+        }
+
+        .brand-name h1 {
+            font-family: 'Marcellus', serif;
+            font-size: 22px;
+            color: var(--primary-gold);
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .brand-name span {
+            font-size: 11px;
+            display: block;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 15px;
+        }
+
+        nav ul a:hover {
+            color: var(--primary-gold);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: #1a120b;
+            padding: 10px 22px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(197, 168, 128, 0.2);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(197, 168, 128, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 190px 20px 100px 20px;
+            background: linear-gradient(rgba(26, 18, 11, 0.85), rgba(26, 18, 11, 0.95)), 
+                        url('hero-banner.jpg') no-repeat center center/cover;
+            text-align: center;
+            border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+        }
+
+        .hero-logo-container {
+            margin-bottom: 20px;
+        }
+
+        .hero-logo-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--primary-gold);
+            box-shadow: 0 0 25px rgba(197, 168, 128, 0.5);
+        }
+
+        .hero h2 {
+            font-family: 'Marcellus', serif;
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h2 span {
+            color: var(--primary-gold);
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 35px auto;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* Premium Courses Grid Styling */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .course-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(197, 168, 128, 0.2);
+            border-radius: 12px;
+            transition: 0.4s;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .course-img-box {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            border-bottom: 2px solid var(--primary-gold);
+        }
+
+        .course-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .course-content {
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .course-content h3 {
+            font-family: 'Marcellus', serif;
+            font-size: 26px;
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+        }
+
+        .course-content p {
+            font-size: 15px;
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .course-topics {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            border-top: 1px solid rgba(197, 168, 128, 0.15);
+            padding-top: 20px;
+            margin-top: auto;
+        }
+
+        .course-topics li {
+            font-size: 14px;
+            color: #bfae99;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .course-topics li i {
+            color: var(--primary-gold);
+            font-size: 12px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Marcellus', serif;
+            font-size: 36px;
+            color: var(--primary-gold);
+            margin: 60px 0 30px 0;
+        }
+
+        /* Why Choose Us Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .benefit-card {
+            background-color: #22160c;
+            border: 1px solid rgba(197, 168, 128, 0.1);
+            padding: 35px 25px;
+            border-radius: 8px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .benefit-card:hover {
+            border-color: var(--primary-gold);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(197, 168, 128, 0.05);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px auto;
+            border: 1px solid var(--primary-gold);
+        }
+
+        .benefit-icon i {
+            font-size: 24px;
+            color: var(--primary-gold);
+        }
+
+        /* Registration Section */
+        .registration-section {
+            background: linear-gradient(rgba(44, 30, 17, 0.95), rgba(44, 30, 17, 0.95)),
+                        url('hero-banner.jpg') no-repeat center center/cover;
+            border: 1px solid var(--primary-gold);
+            border-radius: 12px;
+            padding: 50px;
+            max-width: 1200px;
+            margin: 60px auto 80px auto;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .form-info h3 {
+            font-family: 'Marcellus', serif;
+            font-size: 28px;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+        }
+
+        .form-info p {
+            margin-bottom: 30px;
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-item i {
+            font-size: 20px;
+            color: var(--primary-gold);
+            width: 40px;
+            height: 40px;
+            background: rgba(197, 168, 128, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: var(--dark-bg);
+            border: 1px solid rgba(197, 168, 128, 0.3);
+            color: #fff;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* ڈائنامک فیس باکس کا سٹائل */
+        .fee-display-box {
+            background-color: rgba(197, 168, 128, 0.1);
+            border: 1px dashed var(--primary-gold);
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 15px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .fee-display-box strong {
+            color: var(--primary-gold);
+        }
+
+        form button {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: #1a120b;
+            padding: 14px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        form button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        footer {
+            background-color: #0f0a06;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(197, 168, 128, 0.2);
+            font-size: 14px;
+            color: #888;
+        }
+
+        footer p span {
+            color: var(--primary-gold);
+        }
+
+        @media (max-width: 900px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            nav {
+                display: none;
+            }
+            .hero h2 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo-area">
+                <img src="mm.png" alt="Mubashir Academy Logo" class="web-logo-img">
+                <div class="brand-name">
+                    <h1>MUBASHIR</h1>
+                    <span>Online Quran Academy</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#benefits">Why US</a></li>
+                    <li><a href="#register">Register</a></li>
+                </ul>
+            </nav>
+            <a href="#register" class="cta-btn">Get 3 Days Free Trial</a>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-logo-container">
+            <img src="mm.png" alt="Mubashir Academy USA" class="hero-logo-img">
+        </div>
+        <h2>Embark On A Spiritual Journey<br><span>Learn The Holy Quran Online</span></h2>
+        <p>With Qualified & Dedicated Tutors, Anytime, Anywhere. Flexible schedules designed specifically for students and adults living across US Coast-to-Coast Time Zones.</p>
+        <a href="#register" class="cta-btn" style="padding: 15px 35px; font-size: 16px;">Start Your Free Trial Now</a>
+    </section>
+
+    <section id="courses">
+        <h2 class="section-title">Our Premium Courses</h2>
+        <div class="courses-grid">
+            
+            <div class="course-card">
+                <div class="course-img-box">
+                    <img src="nn.jpeg" alt="Quran Recitation Course">
+                </div>
+                <div class="course-content">
+                    <h3>Quran Recitation</h3>
+                    <p>This course is specifically designed to guide students from foundational basics to fluent Arabic recitation. We focus heavily on correct pronunciation (Makharij) and the rhythmic application of essential Tajweed rules to ensure a beautiful and accurate reading of the Holy Quran.</p>
+                    <ul class="course-topics">
+                        <li><i class="fa-solid fa-circle-check"></i> Proper Makharij Training</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Rhythmic Qira'at Fluency</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Tajweed Rule Application</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Arabic Phonetics & Accent</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Custom Reading Pace</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Continuous Evaluation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-img-box">
+                    <img src="oo.jpeg" alt="Islamic Studies Course">
+                </div>
+                <div class="course-content">
+                    <h3>Islamic Studies</h3>
+                    <p>A comprehensive curriculum structured perfectly for kids and adults living in western societies. This program nurtures strong moral character by providing deep baseline knowledge of fundamental pillars, daily Islamic practices, prophetic histories, and everyday essential etiquette.</p>
+                    <ul class="course-topics">
+                        <li><i class="fa-solid fa-circle-check"></i> Five Pillars of Islam</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Step-by-Step Namaz/Salah</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Daily Sunnah & Essential Duas</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Seerah of Prophet Muhammad</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Islamic Akhlaq & Etiquette</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Modern Moral Values</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="benefits" style="background-color: rgba(197, 168, 128, 0.02); border-radius: 12px; padding-bottom: 40px;">
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fa-solid fa-user-tie"></i></div>
+                <h3>Verified Tutors</h3>
+                <p style="color:#ccc; font-size:14px; line-height:1.6;">Highly qualified, English-fluent Arabic scholars and certified Huffaz to guide you professionally.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fa-solid fa-laptop-medical"></i></div>
+                <h3>1-on-1 Personalized</h3>
+                <p style="color:#ccc; font-size:14px; line-height:1.6;">Exclusive attention with fully customized live classes that cater uniquely to individual learning behavior.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fa-solid fa-clock"></i></div>
+                <h3>Flexible USA Timings</h3>
+                <p style="color:#ccc; font-size:14px; line-height:1.6;">24/7 Availability matching all major USA time zones (EST, CST, MST, PST) for school and work convenience.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="register">
+        <div class="registration-section">
+            <div class="form-grid">
+                <div class="form-info">
+                    <h3>Register For Free Classes</h3>
+                    <p>Fill out the form to instantly secure your 3 Days Free Trial classes with our top tutors. No credit card required.</p>
+                    
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <strong style="color: var(--primary-gold);">Call / WhatsApp</strong>
+                            <p style="margin:0; color:#fff;">03253072531</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <strong style="color: var(--primary-gold);">Official Email</strong>
+                            <p style="margin:0; color:#fff;">muhammadmubashis6457@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <form id="quranForm">
+                        <div class="form-group">
+                            <input type="text" name="Student Name" placeholder="Your Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="Email Address" placeholder="Your Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="WhatsApp Number" placeholder="WhatsApp / Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <select name="Country" id="countrySelect" required>
+                                <option value="" disabled>Select Your Country</option>
+                                <option value="United States" selected>United States (USA)</option>
+                                <option value="Canada">Canada</option>
+                                <option value="United Kingdom">United Kingdom (UK)</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Other">Other Country</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="fee-display-box">
+                                <i class="fa-solid fa-hand-holding-dollar" style="color: var(--primary-gold);"></i>
+                                <span>Monthly Fee: <strong id="feeText">$100 / Month</strong></span>
+                            </div>
+                            <input type="hidden" name="Course Fee" id="hiddenFeeField" value="$100 / Month">
+                        </div>
+
+                        <div class="form-group">
+                            <select name="Selected Course" required>
+                                <option value="" disabled selected>Select Course Interested In</option>
+                                <option value="Quran Recitation">Quran Recitation</option>
+                                <option value="Islamic Studies">Islamic Studies</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="Special Message" rows="3" placeholder="Any Special Instructions or Preferred Timings?"></textarea>
+                        </div>
+                        <button type="submit" id="submitBtn">Submit Registration</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 <span>Mubashir Online Quran Academy</span>. All Rights Reserved. Serving Coast-To-Coast.</p>
+    </footer>
+
+    <script>
+        // دیش بورڈ اور کرنسی کی لائیو تبدیلیاں
+        const countrySelect = document.getElementById('countrySelect');
+        const feeText = document.getElementById('feeText');
+        const hiddenFeeField = document.getElementById('hiddenFeeField');
+
+        const feeStructure = {
+            "United States": "$100 / Month",
+            "Canada": "CA$ 140 / Month",
+            "United Kingdom": "£80 / Month",
+            "Australia": "AU$ 150 / Month",
+            "Other": "Rs. 30,000 / Month"
+        };
+
+        countrySelect.addEventListener('change', function() {
+            const selectedCountry = this.value;
+            const fee = feeStructure[selectedCountry] || "Rs. 30,000 / Month";
+            feeText.innerText = fee;
+            hiddenFeeField.value = fee;
+        });
+
+        // گوگل شیٹ ڈیٹا سبمیشن ہینڈلر
+        // ⚠️ یہاں اپنا نیا والا گوگل ایپ اسکرپٹ یو آر ایل پیسٹ کریں
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwKUQ7KMlKWy1tRo13AlV-TCuh2qJKXer-w0a_vHAJAIfmO20YKFwE_uImJqYTDPTnL/exec';
+        const form = document.getElementById('quranForm');
+        const btn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            btn.disabled = true;
+            btn.innerHTML = "Submitting Data...";
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    btn.disabled = false;
+                    btn.innerHTML = "Submit Registration";
+                    alert("JazakAllahu Khairan! Your data has been successfully.");
+                    form.reset();
+                    // فارم ری سیٹ ہونے کے بعد فیس واپس ڈیفالٹ پر چلی جائے
+                    feeText.innerText = "$100 / Month";
+                    hiddenFeeField.value = "$100 / Month";
+                })
+                .catch(error => {
+                    btn.disabled = false;
+                    btn.innerHTML = "Submit Registration";
+                    alert("Error! Data could not be sent. Please check your web connection.");
+                    console.error('Error!', error.message);
+                });
+        });
+    </script>
+</body>
+</html> 
